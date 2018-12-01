@@ -1,0 +1,184 @@
+/* #region Utility */
+html, body{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Segoe UI,SegoeUI,Segoe WP,Helvetica Neue,Helvetica,Tahoma,Arial,sans-serif;
+    font-weight: 400;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased
+}
+
+body {
+    padding: 8px;
+}
+
+.vscroll 
+{
+    overflow-y: auto;
+}
+
+.hscroll
+{
+    overflow-x: auto;
+}
+
+.hidden {
+    display: none;
+}
+
+.vfill {
+    height: 100%;
+}
+
+.min-h0 {
+    min-height: 0;
+}
+
+.displaynoneimp {
+    display: none !important;
+}
+
+.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.inputfile + label {
+    font-size: 1em;
+    font-weight: 400;
+    color: white;
+    background-color: hsla(206, 100%, 35%, 1);
+    display: inline-block;
+    border-radius: 2px;
+    padding: calc(.375em - 1px) .75em;
+}
+
+.inputfile + label:hover {
+    background-color: hsla(206, 100%, 28%, 1);
+}
+
+.btn {
+    border-radius: 2px;
+    padding: .1em .75em .1em .75em;
+}
+
+/* #endregion */
+
+/* #region Flexbox */
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-fill {
+    flex: 1 1 auto;
+}
+
+.flex-auto {
+    flex: 0 0 auto;
+}
+/* #endregion */
+
+/* #region App classes */
+
+.icons-glyphs {
+    margin-bottom: 0.5em;
+}
+
+.icons .search {
+    border: 1px solid #666;
+    background: url('/icons/appbar.magnify.svg') -10px 50% #FFF no-repeat;
+    font-size: 30px;
+    padding: 6px 10px 6px 52px;
+    width: 250px;
+}
+
+.icons ul {
+    list-style: none;
+    vertical-align: top;
+    padding-inline-start: 0;
+    padding: 0;
+    margin-top: 0.5em;
+}
+
+.icon {
+    display: inline-block;
+    text-align: center;
+    vertical-align: top;
+    width: 100px;
+    margin: 0 10px 10px 0;
+    background-color: #f4f7f8;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/*
+.icons ul li input[type=checkbox] {
+    right: 5px;
+    top: 5px;
+    border-width: 0;
+    border-color: transparent;
+}*/
+
+.icon-selected {
+    background-color: #b0ddff;
+}
+
+.icon-symbol {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    font-size: xx-large;
+}
+
+.icon-name {
+    display: inline-block;
+    text-align: center;
+}
+
+.icon-code {
+    display: block;
+    text-align: center;
+}
+
+.icons-code {
+    flex: 0 0 auto;
+}
+
+.toolbar {
+    padding: 10px;
+}
+
+.save-btn {
+    position: absolute;
+    margin: 10px;
+}
+
+#btn-copy-gen-code {
+    top: 20px;
+    right: 20px;
+}
+
+.clear-glyph-selection {
+    top: 20px;
+    left: 20px;
+}
+
+/*
+.splitter {
+    flex: 0 0 auto;  
+    width: 15px;
+    cursor: col-resize;
+}*/
+
+/* #endregion */
