@@ -23,10 +23,6 @@ body {
     overflow-x: auto;
 }
 
-.hidden {
-    display: none;
-}
-
 .vfill {
     height: 100%;
 }
@@ -95,13 +91,14 @@ body {
     margin-bottom: 0.5em;
 }
 
+/*
 .icons .search {
     border: 1px solid #666;
     background: url('/icons/appbar.magnify.svg') -10px 50% #FFF no-repeat;
     font-size: 30px;
     padding: 6px 10px 6px 52px;
     width: 250px;
-}
+}*/
 
 .icons ul {
     list-style: none;
@@ -109,6 +106,13 @@ body {
     padding-inline-start: 0;
     padding: 0;
     margin-top: 0.5em;
+}
+
+.user-select-none {
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
 }
 
 .icon {
@@ -121,14 +125,6 @@ body {
     border-radius: 5px;
     cursor: pointer;
 }
-
-/*
-.icons ul li input[type=checkbox] {
-    right: 5px;
-    top: 5px;
-    border-width: 0;
-    border-color: transparent;
-}*/
 
 .icon-selected {
     background-color: #b0ddff;
@@ -173,12 +169,5 @@ body {
     top: 20px;
     left: 20px;
 }
-
-/*
-.splitter {
-    flex: 0 0 auto;  
-    width: 15px;
-    cursor: col-resize;
-}*/
 
 /* #endregion */

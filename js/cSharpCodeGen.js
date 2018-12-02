@@ -20,6 +20,7 @@ export function generateCsharpCode(glyphs, prefix, csharpClassName) {
 }
 
 var autoGenFieldNamesCount = 0;
+
 function getCSharpFieldName(name, prefix) {
     if(typeof name !== 'string' || name.length === 0) {
         name = `Icon${++autoGenFieldNamesCount}`;

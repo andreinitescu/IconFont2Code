@@ -1,4 +1,4 @@
-function SvgFontFactory() {
+/*function SvgFontFactory() {
     this.createFont = function (file, onFontLoaded) {
         var fr = new FileReader();
         fr.onload = function () {
@@ -50,3 +50,4 @@ function SvgFontRenderer() {
         svg.setAttribute('viewBox', viewBox);
     };
 }
+*/

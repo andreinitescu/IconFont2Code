@@ -1,5 +1,3 @@
-import {MainViewController} from './mainVC.js'
-
 ko.bindingHandlers.fileUpload = {
     init: function (element, valueAccessor, ) {
         $(element).change(function () {
@@ -75,13 +73,23 @@ ko.bindingHandlers.highlight = {
 	}
 };
 
-ko.bindingHandlers.viewController = {
+ko.bindingHandlers.fieldBtn = {
     init: function (element, valueAccessor, allBindings) {
-        var ctor = eval(valueAccessor());
-        var vc = new ctor(element);
-        $(element).data('vc', vc);
-        vc.init();
+        var field = $(valueAccessor().selector);
+        field.keypress(function (e) {
+            if(e.which == 13)
+            {
+                $(element).click();
+                return false;
+            }
+        });
+        
+        $(element).click(function () {
+            const v = $(valueAccessor().selector).val();
+            valueAccessor().setter(v);
+        });
     },
     update: function (element, valueAccessor) {
     }
 };
+
