@@ -16,3 +16,12 @@ In the video below you can see the Foundation icons font which has glyphs with n
 
 (Click the thumbnail below to watch the video)
 [![Watch the video](http://i3.ytimg.com/vi/HF6VLaAYSa4/maxresdefault.jpg)](https://youtu.be/HF6VLaAYSa4)
+
+
+### Thanks to these awesome projects
+
+* [OpenType.js](https://github.com/opentypejs/opentype.js)
+* [KnockoutJS](https://knockoutjs.com/)
+* [PrismJS](https://prismjs.com/)
+* [ClipboardJS](https://clipboardjs)
+* [Bootstrap](https://getbootstrap.com/)
