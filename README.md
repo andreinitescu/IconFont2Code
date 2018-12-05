@@ -8,9 +8,11 @@ Here's an example with one of the Font Awesome fonts:
 ![](https://github.com/andreinitescu/IconFont2Code/blob/master/docs/img/example1.gif)
 
 
-If the font file has glyphs with a generic name or without a name, select also the CSS file which is usually provided with the font file, and the tool will give generate nice names for your C# fields:
+### Generate nicer C# fields
 
-![](https://github.com/andreinitescu/IconFont2Code/blob/master/docs/img/example2.gif)
+If the font file has glyphs with a generic name or the glyphs have no name, select the CSS file which is usually provided with the icon font, and the tool will give generate nice names for your C# fields.
 
+In the video below you can see the Foundation icons font which has glyphs with not very useful names:
 
-
+(Click the thumbnabnail below to watch the video)
+[![Watch the video](http://i3.ytimg.com/vi/HF6VLaAYSa4/maxresdefault.jpg)](https://youtu.be/HF6VLaAYSa4)
