@@ -1,7 +1,7 @@
 IconFont2Code
 ===================
 
-This web tool generates a C# class with the Unicode values of the icon glyphs in your font file (.ttf/.otf).
+This web tool generates a C# class with the Unicode values of the glyph icons in your font file (.ttf/.otf).
 
 #### **See it live here**: https://andreinitescu.github.io/IconFont2Code/
 
