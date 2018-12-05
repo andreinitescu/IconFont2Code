@@ -7,7 +7,7 @@ This web tool generates a C# class with the Unicode values of the icon glyphs in
 
 ## How to use it
 
-Here's an example with one of the "Font Awesome" fonts:
+Here's an example with one of the fonts in the "Font Awesome" font pack:
 
 ![](https://github.com/andreinitescu/IconFont2Code/blob/master/example1.gif)
 
