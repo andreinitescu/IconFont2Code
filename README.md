@@ -3,12 +3,16 @@ IconFont2Code
 
 This web tool generates a C# class with the Unicode values of the icon glyphs in your font file (.ttf/.otf).
 
+**See it live here**: https://andreinitescu.github.io/IconFont2Code/
+
+## How to use it
+
 Here's an example with one of the "Font Awesome" fonts:
 
 ![](https://github.com/andreinitescu/IconFont2Code/blob/master/example1.gif)
 
 
-### Generate nicer C# fields
+## Generate nicer C# fields
 
 If the font file has glyphs with a generic name or the glyphs have no name, select the CSS file which is usually provided with the icon font, and the tool will give generate nice names for your C# fields.
 
@@ -18,7 +22,7 @@ In the video below you can see the Foundation icons font which has glyphs with n
 [![Watch the video](http://i3.ytimg.com/vi/HF6VLaAYSa4/maxresdefault.jpg)](https://youtu.be/HF6VLaAYSa4)
 
 
-### Thanks to these awesome projects
+## Thanks to these awesome projects
 
 * [OpenType.js](https://github.com/opentypejs/opentype.js)
 * [KnockoutJS](https://knockoutjs.com/)
