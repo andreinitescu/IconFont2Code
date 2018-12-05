@@ -3,7 +3,7 @@ IconFont2Code
 
 This web tool generates a C# class with the Unicode values of the icon glyphs in your font file (.ttf/.otf).
 
-Here's an example with one of the Font Awesome fonts:
+Here's an example with one of the "Font Awesome" fonts:
 
 ![](https://github.com/andreinitescu/IconFont2Code/blob/master/example1.gif)
 
