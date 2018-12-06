@@ -19,7 +19,7 @@ If the font file has glyphs with a generic name or the glyphs have no name, sele
 In the video below you can see the Foundation icons font which has glyphs with not very useful names:
 
 (Click the thumbnail below to watch the video)
-[![Watch the video](https://github.com/andreinitescu/IconFont2Code/blob/master/maxresdefault.jpg)](https://youtu.be/HF6VLaAYSa4)
+[![Watch the video](![](https://github.com/andreinitescu/IconFont2Code/blob/master/example2.jpg)](https://youtu.be/HF6VLaAYSa4)
 
 ## Thanks to these awesome projects
 
