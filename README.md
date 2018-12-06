@@ -16,7 +16,7 @@ Here's an example with one of the fonts in the "Font Awesome" font pack:
 
 ## Generate nicer C# fields
 
-If the font file has glyphs with a generic name or the glyphs have no name, select the CSS file which is usually provided with the icon font, and the tool will generate nice names for your C# fields.
+When the font file has glyphs with generic names or the glyphs have no name, select the CSS file which is usually provided with the icon font, and the tool will generate nice names for your C# fields.
 
 In the video below you can see the Foundation icons font which has glyphs with not very useful names:
 
