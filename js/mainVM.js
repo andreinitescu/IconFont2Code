@@ -1,6 +1,7 @@
 import { OpenTypeFontFactory } from './fontParsers/otfFont.js';
 import { CssFontFactory } from './fontParsers/cssFont.js';
 import { generateCsharpCode } from './cSharpCodeGen.js';
+import { toUnicodeString } from './utils/stringUtils.js';
 
 export class MainViewModel {
     constructor() {
@@ -71,6 +72,7 @@ export class MainViewModel {
 
         this.clearSelectedGlyphs = () => _this.selectedGlyphs.removeAll();
         this.hasGlyphsWithNames = ko.computed(() => _this.font() && _this.font().glyphs().some(g => g.name));
+        this.toUnicodeString = toUnicodeString;
 
         function setFont(font) {
             _this.font(font);

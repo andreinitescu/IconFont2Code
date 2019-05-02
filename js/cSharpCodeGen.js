@@ -1,17 +1,19 @@
+import { toUnicodeString } from './utils/stringUtils.js';
+
 export function generateCsharpCode(glyphs, prefix, csharpClassName) {
     if (!csharpClassName) {
         csharpClassName = "IconFont";
     }
 
     var s = `static class ${csharpClassName}\n{\n`;
-    autoGenFieldNamesCount= 0;
+    autoGenFieldNamesCount = 0;
 
     for (var i = 0; i < glyphs.length; ++i) {
         if (s[s.length - 1] !== '\n') {
             s += '\n';
         }
 
-        s += `\tpublic const string ${getCSharpFieldName(glyphs[i].name, prefix)} = "\\u${glyphs[i].unicode.toString(16)}";`;
+        s += `\tpublic const string ${getCSharpFieldName(glyphs[i].name, prefix)} = "${toUnicodeString(glyphs[i].unicode)}";`;
     }
 
     s += "\n}";
@@ -22,7 +24,7 @@ export function generateCsharpCode(glyphs, prefix, csharpClassName) {
 var autoGenFieldNamesCount = 0;
 
 function getCSharpFieldName(name, prefix) {
-    if(typeof name !== 'string' || name.length === 0) {
+    if (typeof name !== 'string' || name.length === 0) {
         name = `Icon${++autoGenFieldNamesCount}`;
         return name;
     }

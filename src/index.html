@@ -63,7 +63,7 @@
                             <span class="icon-symbol" data-bind="drawGlyph: $data"></span>
                             <div class="font-small">
                                 <span class="icon-name"><small data-bind="text: name"></small></span>
-                                <span class="icon-code"><small data-bind="text: unicode.toString(16)"></small></span>
+                                <span class="icon-code"><small data-bind="text: $root.toUnicodeString(unicode)"></small></span>
                             </div>
                         </li>
                     </ul>
