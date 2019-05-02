@@ -114,9 +114,30 @@
                         </div>
                     </div>
 
-                    <label class="mt-3">CSS file<u class="ml-1"><i data-toggle="tooltip" data-placement="top" title="When font has glyphs with generic names or without names, you can select a CSS file with same glyphs and this tool will try to use the CSS class name for C# field name?">(what's it for?)</i></u></label>
+                    <label class="mt-3">CSS file<u class="ml-1"><i data-toggle="modal" data-target="#cssFeatureModal">What's this for?</i> </i></u></label>
                     <input type="file" data-bind="fileUpload: uploadMappingFile" />
                 </div>
+
+                <div class="modal fade" id="cssFeatureModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Using a complementary CSS file</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                            When the font has glyphs with generic names or without names, you can select the complementary CSS file for the font and this tool will try to use the CSS class name as the C# field name.
+                            <br /><br />Check out the following video which shows selecting the CSS file which comes with the Foundation Icon font:<br/><a href="https://www.youtube.com/watch?v=HF6VLaAYSa4">https://www.youtube.com/watch?v=HF6VLaAYSa4</a>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
             </div>
         </div>
     </div>
