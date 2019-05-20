@@ -28,11 +28,11 @@ In the video below you can see the Foundation icons font which has glyph name in
 
 ## Automagically use the CSS for certain fonts
 
-IconFont2Code knows how to automatically select the right CSS file for certain known fonts. More fonts can be added easily by submitting a pull request to add more fonts to [![](https://github.com/andreinitescu/IconFont2Code/blob/master/js/mappers.js)](mappers.js). The 'name' field is the name of the font and the 'mappingUrl' is the URL of the CSS file.
+IconFont2Code knows how to automatically select the right CSS file for certain known fonts. More fonts can be added easily by submitting a pull request to add more fonts to [mappers.js](https://github.com/andreinitescu/IconFont2Code/blob/master/js/mappers.js). The 'name' field is the name of the font and the 'mappingUrl' is the URL of the CSS file.
 
 ## Like it?
 
-Thanks! Don't forget to star the project here on GitHub, or feel free to [![](https://twitter.com/nitescua)](say hi)
+Thanks! I hope it saved you some time. Don't forget to star the project here on GitHub, or feel free to [say hi](https://twitter.com/nitescua)].
 
 ## Thanks to these awesome projects
 
