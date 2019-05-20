@@ -11,6 +11,7 @@ It should be an useful tool for any .NET app (**WPF**/**UWP**/**Xamarin**/**Xama
 
 1. Pick a font (Browse from disk or just drag&drop the font file)
 2. Click on "Copy to clipboard" button to copy the generated C# code
+3. Paste the code in your .NET app
 
 See an example with one of the "Font Awesome" fonts:
 
