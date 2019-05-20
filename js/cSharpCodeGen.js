@@ -14,14 +14,14 @@ export function generateCsharpCode(glyphs, prefix, csharpClassName, importedCSha
         }
     } else {
         let fieldNames = [];
-        
+
         let fields = {};
         for (let i = 0; i < glyphs.length; ++i) {
             let fieldName = getCSharpFieldNameWithMappings(glyphs[i], prefix, importedCSharpFieldMappings);
             fieldNames.push(fieldName);
             fields[fieldName] = `\n\tpublic const string ${fieldName} = "${toUnicodeString(glyphs[i].unicode)}";`;
         }
-        
+
         fieldNames.sort();
 
         for (let i = 0; i < glyphs.length; ++i) {
@@ -51,6 +51,11 @@ function getCSharpFieldName(name, prefix) {
     }
 
     name = name.replace(/ /g, "");
+
+    // Leave single letter names unprocessed
+    if (name.length == 1)
+        return name;
+
     name = toCamelCase(name);
 
     if (prefix) {
