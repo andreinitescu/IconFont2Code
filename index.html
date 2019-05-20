@@ -43,7 +43,7 @@
             <label class="border border-secondary p-1 pl-3 pr-3" style="display: none" data-bind="text: font().fileName, visible: font().fileName"></label>
             <!-- /ko -->
             <input class="inputfile" type="file" id="file" data-bind="fileUpload: openFontFile" class="btn" />
-            <label class="inputfile-btn" for="file">Browse</label>
+            <label class="inputfile-btn" for="file" data-toggle="tooltip" data-placement="bottom" data-html="true" title="Select a font file from disk<br/> <small>Or just drag and drop it</small>">Browse</label>
         </div>
 
         <!-- ko if: font()-->
