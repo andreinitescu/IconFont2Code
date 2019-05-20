@@ -14,9 +14,9 @@ ko.bindingHandlers.fileUpload = {
 
 ko.bindingHandlers.enterkey = {
     init: function (element, valueAccessor, allBindings, viewModel) {
-        var callback = valueAccessor();
+        let callback = valueAccessor();
         $(element).keypress(function (event) {
-            var keyCode = (event.which ? event.which : event.keyCode);
+            let keyCode = (event.which ? event.which : event.keyCode);
             if (keyCode === 13) {
                 callback.call(viewModel);
                 return false;
@@ -28,7 +28,7 @@ ko.bindingHandlers.enterkey = {
 
 ko.bindingHandlers.drawGlyph = {
     init: function (element, valueAccessor, allBindings, glyph, bindingContext) {
-        bindingContext.$parent.font().createRenderer().render(element, glyph);
+        bindingContext.$parent.font().renderer.render(element, glyph);
     },
     update: function (element, valueAccessor) {
     }
@@ -36,7 +36,7 @@ ko.bindingHandlers.drawGlyph = {
 
 
 ko.observableArray.fn.pushAll = function (valuesToPush) {
-    var underlyingArray = this();
+    let underlyingArray = this();
     this.valueWillMutate();
     ko.utils.arrayPushAll(underlyingArray, valuesToPush);
     this.valueHasMutated();
@@ -56,14 +56,14 @@ ko.bindingHandlers.highlight = {
 		}
 
 		// check if we specified a language.
-		var language = allBindings.get('language');
+		let language = allBindings.get('language');
 		if (language) {
 			element.className += language;
 		}
 
 	},
 	update: function (element, valueAccessor) {
-		var value = ko.unwrap(valueAccessor());
+		let value = ko.unwrap(valueAccessor());
 
 		if (value !== undefined) { // allows highlighting static code
 			element.innerHTML = value;
@@ -75,7 +75,7 @@ ko.bindingHandlers.highlight = {
 
 ko.bindingHandlers.fieldBtn = {
     init: function (element, valueAccessor, allBindings) {
-        var field = $(valueAccessor().selector);
+        let field = $(valueAccessor().selector);
         field.keypress(function (e) {
             if(e.which == 13)
             {
@@ -93,3 +93,32 @@ ko.bindingHandlers.fieldBtn = {
     }
 };
 
+
+//wrapper for a computed observable that can pause its subscriptions
+ko.pauseableComputed = function(evaluatorFunction, evaluatorFunctionTarget) {
+    let _cachedValue = "";
+    let _isPaused = ko.observable(false);
+
+    //the computed observable that we will return
+    let result = ko.computed(function() {
+        if (!_isPaused()) {
+            //call the actual function that was passed in
+            return evaluatorFunction.call(evaluatorFunctionTarget);
+        }
+        return _cachedValue;
+    }, evaluatorFunctionTarget);
+
+    //keep track of our current value and set the pause flag to release our actual subscriptions
+    result.pause = function() {
+        _cachedValue = this();
+        _isPaused(true);
+    }.bind(result);
+
+    //clear the cached value and allow our computed observable to be re-evaluated
+    result.resume = function() {
+        _cachedValue = "";
+        _isPaused(false);
+    }
+
+    return result;
+};

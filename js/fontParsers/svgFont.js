@@ -26,9 +26,7 @@ function SvgFont(doc) {
         });
     };
 
-    this.createRenderer = function () {
-        return new SvgFontRenderer();
-    };
+    this.renderer = new SvgFontRenderer();
 }
 
 function SvgFontRenderer() {

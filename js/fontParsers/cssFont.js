@@ -1,4 +1,4 @@
-import { FontGlyph } from '../FontGlyph.js';
+/*import { FontGlyph } from '../FontGlyph.js';
 import { readFileAsText } from '../utils/asyncFileReader.js';
 
 export class CssFontFactory {
@@ -49,7 +49,7 @@ function ensureCssFontIsLoaded(url) {
     headScript.parentNode.insertBefore(link, headScript);
 }*/
 
-
+/*
 function GetCssRulesForCssText(styleContent) {
     const styleElement = document.createElement("style");
     styleElement.textContent = styleContent;
@@ -75,12 +75,8 @@ function getCSSRuleContent(cssDef) {
 
 class CssFont {
     constructor(glyphs) {
-        this.glyphs = function () {
-            return glyphs;
-        };
-        this.createRenderer = function () {
-            return new CssFontRenderer();
-        };
+        this.glyphs = () => glyphs;
+        this.renderer = new CssFontRenderer();
     }
 }
 
@@ -93,3 +89,4 @@ class CssFontRenderer {
         };
     }
 }
+*/

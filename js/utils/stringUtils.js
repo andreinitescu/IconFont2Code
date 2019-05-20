@@ -1,15 +1,11 @@
 export function toUnicodeString(unicode) {
-    var unicodeString = '';
+    let unicodeString = unicode.toString(16);
 
-    var str = String.fromCharCode(unicode);
-    for (var i = 0; i < str.length; i++) {
-        var theUnicode = str.charCodeAt(i).toString(16).toUpperCase();
-        while (theUnicode.length < 4) {
-            theUnicode = '0' + theUnicode;
-        }
-        theUnicode = '\\u' + theUnicode;
-        unicodeString += theUnicode;
+    if(unicodeString.length <= 4) {
+        unicodeString = unicodeString.padStart(4, "0");
+    } else {
+        unicodeString = unicodeString.padStart(8, "0");
     }
 
-    return unicodeString;
+    return `\\u${unicodeString}`;
 }

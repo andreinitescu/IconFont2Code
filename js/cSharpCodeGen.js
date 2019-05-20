@@ -1,19 +1,33 @@
 import { toUnicodeString } from './utils/stringUtils.js';
 
-export function generateCsharpCode(glyphs, prefix, csharpClassName) {
+export function generateCsharpCode(glyphs, prefix, csharpClassName, importedCSharpFieldMappings, isSorted) {
     if (!csharpClassName) {
         csharpClassName = "IconFont";
     }
 
-    var s = `static class ${csharpClassName}\n{\n`;
+    let s = `static class ${csharpClassName}\n{`;
     autoGenFieldNamesCount = 0;
 
-    for (var i = 0; i < glyphs.length; ++i) {
-        if (s[s.length - 1] !== '\n') {
-            s += '\n';
+    if (!isSorted) {
+        for (let i = 0; i < glyphs.length; ++i) {
+            s += `\n\tpublic const string ${getCSharpFieldNameWithMappings(glyphs[i], prefix, importedCSharpFieldMappings)} = "${toUnicodeString(glyphs[i].unicode)}";`;
         }
+    } else {
+        let fieldNames = [];
+        
+        let fields = {};
+        for (let i = 0; i < glyphs.length; ++i) {
+            let fieldName = getCSharpFieldNameWithMappings(glyphs[i], prefix, importedCSharpFieldMappings);
+            fieldNames.push(fieldName);
+            fields[fieldName] = `\n\tpublic const string ${fieldName} = "${toUnicodeString(glyphs[i].unicode)}";`;
+        }
+        
+        fieldNames.sort();
 
-        s += `\tpublic const string ${getCSharpFieldName(glyphs[i].name, prefix)} = "${toUnicodeString(glyphs[i].unicode)}";`;
+        for (let i = 0; i < glyphs.length; ++i) {
+            let fieldName = fieldNames[i];
+            s += fields[fieldName];
+        }
     }
 
     s += "\n}";
@@ -21,7 +35,14 @@ export function generateCsharpCode(glyphs, prefix, csharpClassName) {
     return s;
 }
 
-var autoGenFieldNamesCount = 0;
+let autoGenFieldNamesCount = 0;
+
+function getCSharpFieldNameWithMappings(glyph, prefix, importedCSharpFieldMappings) {
+    if (importedCSharpFieldMappings && importedCSharpFieldMappings[glyph.unicode] !== undefined)
+        return importedCSharpFieldMappings[glyph.unicode];
+    else
+        return getCSharpFieldName(glyph.name, prefix);
+}
 
 function getCSharpFieldName(name, prefix) {
     if (typeof name !== 'string' || name.length === 0) {
@@ -29,11 +50,12 @@ function getCSharpFieldName(name, prefix) {
         return name;
     }
 
-    var name = toCamelCase(name);
+    name = name.replace(/ /g, "");
+    name = toCamelCase(name);
 
     if (prefix) {
-        var prefixes = prefix.split(",");
-        var i = 0;
+        let prefixes = prefix.split(",");
+        let i = 0;
         while (i < prefixes.length) {
             if (name.toLowerCase().startsWith(prefixes[i].toLowerCase())) {
                 name = name.substr(prefixes[i].length);
@@ -48,10 +70,10 @@ function getCSharpFieldName(name, prefix) {
 }
 
 function toCamelCase(name) {
-    var s = "";
-    var toUpper = true;
-    for (var i = 0; i < name.length; ++i) {
-        var c = name[i];
+    let s = "";
+    let toUpper = true;
+    for (let i = 0; i < name.length; ++i) {
+        let c = name[i];
         if (c == '-') {
             toUpper = true;
         }
@@ -64,6 +86,6 @@ function toCamelCase(name) {
 }
 
 function generateXAMLCode(fontName, fontFileName) {
-    var s = `<OnPlatform x:Key="IconsFontFamily"\n            x:TypedArguments="x:String"\n            Android=\"${fontFileName}#${fontName}\"\n            iOS="${fontName}" />`;
+    const s = `<OnPlatform x:Key="IconsFontFamily"\n            x:TypedArguments="x:String"\n            Android=\"${fontFileName}#${fontName}\"\n            iOS="${fontName}" />`;
     return htmlEncode(s);
 }

@@ -2,6 +2,13 @@ export class MainViewController {
     constructor() {
         initSelectionHandling();
         initClipboard();
+        initDragAndDrop();
+
+        $(document).on('click', '.expand-glyphs-panel', function (){
+                $('.csharp-panel').toggle();
+                $('.options-panel').toggle();
+                $(this).find('>:first-child').toggleClass('fa-expand-arrows-alt').toggleClass('fa-compress-arrows-alt');
+        });
     }
 }
 
@@ -20,10 +27,10 @@ function initSelectionHandling() {
     }, null, 'arrayChange');
 
     // Subscribe to click events on glyph elements
-    $('.icons-glyphs').on('click', '.icon', onGlyphClicked);
+    $(document).on('click', '.icons-glyphs .icon', onGlyphClicked);
 
     function onGlyphSelectionChanged(glyph, isSelected) {
-        var $glyphElem = getGlyphElem(glyph);
+        let $glyphElem = getGlyphElem(glyph);
         if (isSelected) {
             $glyphElem.addClass('icon-selected');
         } else {
@@ -112,4 +119,30 @@ function initClipboard() {
     }
 
     $('[data-toggle="tooltip"]').tooltip();
+}
+
+function initDragAndDrop() {
+    document.querySelector("body").addEventListener("dragover", function (ev) {
+        ev.preventDefault();
+    });
+
+    document.querySelector("body").addEventListener("drop", function (ev) {
+        ev.preventDefault();
+
+        let fileToOpen = null;
+        if (ev.dataTransfer.items) {
+            // Use DataTransferItemList interface to access the file(s)
+            // If dropped items aren't files, reject them
+            const dtItem = ev.dataTransfer.items[0];
+            if (dtItem.kind === 'file') {
+                fileToOpen = dtItem.getAsFile();
+            }
+        } else {
+            // Use DataTransfer interface to access the file(s)
+            fileToOpen = ev.dataTransfer.files[0];
+        }
+
+        const vm = ko.dataFor(ev.currentTarget);
+        vm.openFile(fileToOpen);
+    });
 }
