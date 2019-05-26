@@ -20,7 +20,6 @@ export class OpenTypeFontFactory {
 
 class OpenTypeFont {
     constructor(fileName, font) {
-        debugger;
         this.fileName = fileName;
         this.name = () => font.names.fullName["en"] || Object.values(font.names.fullName)[0];
         this.uniqueID = () => font.names.uniqueID["en"] || Object.values(font.names.uniqueID)[0];

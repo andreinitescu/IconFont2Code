@@ -4,10 +4,18 @@ export class MainViewController {
         initClipboard();
         initDragAndDrop();
 
-        $(document).on('click', '.expand-glyphs-panel', function (){
-                $('.csharp-panel').toggle();
-                $('.options-panel').toggle();
-                $(this).find('>:first-child').toggleClass('fa-expand-arrows-alt').toggleClass('fa-compress-arrows-alt');
+        $(document).on('click', '.expand-glyphs-panel', function () {
+            $('.csharp-panel').toggle();
+            $('.options-panel').toggle();
+            $(this).find('>:first-child').toggleClass('fa-expand-arrows-alt').toggleClass('fa-compress-arrows-alt');
+        });
+
+        $(document).on('hidden.bs.modal', '#fontwithoutglyphs-dialog', function () {
+            debugger;
+            let dontAskAgain = $("input[name=dismiss]", this).is(":checked");
+            if (dontAskAgain) {
+                Cookies.set('fontwithoutglyphs-dontremind', true);
+            }
         });
     }
 }

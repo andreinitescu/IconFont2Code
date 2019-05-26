@@ -85,7 +85,10 @@ export class MainViewModel {
                 setTimeout(() => {
                     setFont(font);
                     _this.isLoading(false);
-                }, 100);
+
+                    if(!Cookies.get('fontwithoutglyphs-dontremind'))
+                        $("#fontwithoutglyphs-dialog").modal('show');
+                });
             }
         };
 
