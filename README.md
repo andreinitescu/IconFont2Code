@@ -7,6 +7,8 @@ It should be an useful tool for any .NET app (**WPF**/**UWP**/**Xamarin**/**Xama
 
 #### **See it live here**: https://andreinitescu.github.io/IconFont2Code/
 
+Have questions? I'm on Twitter: https://twitter.com/nitescua
+
 ## How to use it
 
 1. Pick a font (Browse from disk or just drag&drop the font file)
