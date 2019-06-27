@@ -7,7 +7,7 @@ It should be an useful tool for any .NET app (**WPF**/**UWP**/**Xamarin**/**Xama
 
 #### **See it live here**: https://andreinitescu.github.io/IconFont2Code/
 
-Have questions or want to hear for updates on IconFont2Code? I'm on Twitter: https://twitter.com/nitescua
+Have questions or want to hear for updates on IconFont2Code? Follow me on Twitter: https://twitter.com/nitescua
 
 ## How to use it
 
