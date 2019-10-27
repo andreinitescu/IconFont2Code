@@ -13,7 +13,7 @@ export class MainViewModel {
         this.isLoading = ko.observable(false);
 
         this.font = ko.observable();
-        this.code = ko.observable();
+        //this.code = ko.observable();
 
         this.code = ko.pauseableComputed(() => {
             if (!_this.font())

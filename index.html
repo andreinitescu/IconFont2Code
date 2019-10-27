@@ -8,17 +8,17 @@
     <title>IconFont2Code</title>
 
     <link rel="stylesheet" type="text/css" href="css/prism-vs.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/themes/prism.min.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.0/themes/prism.min.css" type="text/css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/themes/prism-okaidia.min.css" type="text/css">-->
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.0/themes/prism-okaidia.min.css" type="text/css">-->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/opentype.js@latest/dist/opentype.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/prism.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/components/prism-clike.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/components/prism-csharp.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/components/prism-markup.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.0/components/prism-clike.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.0/components/prism-csharp.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.0/components/prism-markup.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
 
@@ -35,6 +35,8 @@
 </head>
 
 <body>
+    <a href="https://github.com/andreinitescu/IconFont2Code"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png" alt="Fork me on GitHub"></a>
+
     <div class="flex-col h-100 p-1 min-h0">
         <div id="font-file-panel" class="flex-auto">
             <h3>Icon font to Code</h3>
@@ -58,7 +60,7 @@
             <div class="icons flex-fill flex-col min-h0">
                 <div class="clearfix">
                     <h5 class="float-left">Font glyphs (<span data-bind="text: font().glyphs().length"></span>)</h5>
-                    <button class="btn btn-outline-primary float-right expand-glyphs-panel" data-toggle="button" aria-pressed="false" autocomplete="off" type="button">
+                    <button class="btn btn-outline-primary float-right expand-glyphs-panel position-relative" data-toggle="button" aria-pressed="false" autocomplete="off" type="button">
                         <span class="fas fa-expand-arrows-alt"></span>
                     </button>
                 </div>
@@ -82,7 +84,7 @@
             <!-- C# code -->
             <div class="icons-code flex-col pl-3 min-h0 csharp-panel">
                 <h5>C#</h5>
-                <pre class="pr-5 flex-fill"><code id="gen-code" data-bind="highlight: code, language: 'language-csharp'"></code></pre>
+                <pre class="pr-5 flex-fill"><code id="gen-code" class="language-csharp" data-bind="highlight: code"></code></pre>
                 <div class="flex-auto flex-row">
                     <a href="https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/text/fonts" target="_blank">How to add the font to your app?</a>
                     <div class="flex-fill"></div>
@@ -160,7 +162,7 @@
                                 <p>If the font you selected has glyphs without a name or a meaningful name, it will make the generated C# code use generic C# field name (e.g 'Icon1', 'Icon2')</p>
                                 <p>Usually fonts come with a CSS file. Select the CSS file with the 'Glyph names file' option on the right and enjoy meaningful C# field names.</p>
 
-                                <input type="checkbox" id="dismiss" name="dismiss"/>
+                                <input type="checkbox" id="dismiss" name="dismiss" />
                                 <label for="dismiss">Don't remind me again</label>
                             </div>
                             <div class="modal-footer">
@@ -207,8 +209,7 @@
             <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
         </svg></a>
     </div>-->
-    
-    <a href="https://github.com/andreinitescu/IconFont2Code"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png" alt="Fork me on GitHub"></a>
+
 
     <!-- App -->
     <script type="module" src="js/ko.js"></script>
