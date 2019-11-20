@@ -33,7 +33,7 @@ export class MainViewModel {
             prefix: ko.observable(),
         };
 
-        this.isFontFile = (file) => file.name.endsWith('.ttf') || file.name.endsWith('.otf');
+        this.isFontFile = (file) => file.name.endsWith('.ttf') || file.name.endsWith('.otf') || file.name.endsWith('.woff');
         this.isCsharpFile = (file) => file.name.endsWith('.cs');
 
         this.openFile = async (fileToOpen) => {
@@ -52,7 +52,7 @@ export class MainViewModel {
                 return;
 
             if (!this.isFontFile(file)) {
-                alert('Please select a TrueType Font (.ttf) or an OpenType Font (.otf) file');
+                alert('Please select a TrueType Font (.ttf), OpenType Font (.otf) or Web Open Font Format (.woff) file');
                 return;
             }
 
