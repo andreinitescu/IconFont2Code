@@ -9,10 +9,6 @@ html, body{
     -webkit-font-smoothing: antialiased
 }
 
-body {
-    padding: 8px;
-}
-
 .vscroll 
 {
     overflow-y: auto;
@@ -91,6 +87,7 @@ body {
     margin-bottom: 0.5em;
 }
 
+
 /*
 .icons .search {
     border: 1px solid #666;
@@ -168,6 +165,14 @@ body {
 .clear-glyph-selection {
     top: 20px;
     left: 20px;
+}
+
+.left-border {
+    border-left: 1px solid lightgray;
+}
+
+.top-border {
+    border-top: 1px solid lightgray;
 }
 
 /* #endregion */

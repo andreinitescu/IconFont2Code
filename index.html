@@ -40,8 +40,8 @@
         <small class="vertical-middle text-muted d-block">Like it? Please ⭐ star it.</small>
     </div>
 
-    <div class="flex-col h-100 p-1 min-h0">
-        <div id="font-file-panel" class="flex-auto">
+    <div class="flex-col h-100 min-h0">
+        <div id="font-file-panel" class="flex-auto p-3">
             <h3>Icon font to Code</h3>
             <label for="file">Font file (TTF/OTF/WOFF): </label>
 
@@ -50,17 +50,19 @@
             <!-- /ko -->
             <input class="inputfile" type="file" id="file" data-bind="fileUpload: openFontFile" class="btn" />
             <label class="inputfile-btn" for="file" data-toggle="tooltip" data-placement="bottom" data-html="true" title="Select a font file from disk<br/> <small>Or just drag and drop it</small>">Browse</label>
+
+            <!-- ko if: font()-->
+            <div style="display: none" data-bind="visible: font().name">
+                <span class="inline">Font name:</span>
+                <span data-bind="text: font().name()" class="inline"></span>
+            </div>
+            <!-- /ko -->
         </div>
 
         <!-- ko if: font()-->
-        <div style="display: none" data-bind="visible: font().name">
-            <span class="inline">Font name:</span>
-            <span data-bind="text: font().name()" class="inline"></span>
-        </div>
-
-        <div class="flex-fill flex-row min-h0 mt-3" data-bind="visible: font()" style="display: none">
+        <div class="flex-fill flex-row min-h0 top-border" data-bind="visible: font()" style="display: none">
             <!-- Glyphs -->
-            <div class="icons flex-fill flex-col min-h0">
+            <div class="icons flex-fill flex-col min-h0 pt-3 pb-3 pl-3">
                 <div class="clearfix">
                     <h5 class="float-left">Font glyphs (<span data-bind="text: font().glyphs().length"></span>)</h5>
                     <button class="btn btn-outline-primary float-right expand-glyphs-panel position-relative" data-toggle="button" aria-pressed="false" autocomplete="off" type="button">
@@ -85,11 +87,11 @@
             </div>
 
             <!-- C# code -->
-            <div class="icons-code flex-col pl-3 min-h0 csharp-panel">
+            <div class="icons-code flex-col pt-3 pb-3 pl-3 min-h0 csharp-panel left-border">
                 <h5>C#</h5>
                 <pre class="pr-5 flex-fill"><code id="gen-code" class="language-csharp" data-bind="highlight: code"></code></pre>
-                <div class="flex-auto flex-row">
-                    <a href="https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/text/fonts" target="_blank">How to add the font to your app?</a>
+                <div class="flex-auto flex-row mr-3">
+                    <small><a href="https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/text/fonts" target="_blank">How to add the font to your app?</a></small>
                     <div class="flex-fill"></div>
                     <button class="btn flex-auto align-self-end btn-primary" id="btn-copy-gen-code" data-clipboard-action="copy" data-clipboard-target="#gen-code">Copy to clipboard</button>
                 </div>
@@ -104,7 +106,7 @@
             </div>-->
 
             <!-- Options panel -->
-            <div class="ml-3 options-panel">
+            <div class="options-panel left-border pt-3 pb-3 pl-3">
                 <h5>C# code generation options</h5>
                 <div class="card p-3 bg-light form-group">
                     <label for="csharpClassName" class="font-bold">C# class name</label>
@@ -156,14 +158,14 @@
                 </div>
 
                 <div class="modal fade" tabindex="-1" role="dialog" id="fontwithoutglyphs-dialog" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
+                    <div class="modal-dialog modal-xl" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title">About font glyphs name</h5>
                             </div>
                             <div class="modal-body">
-                                <p>If the font you selected has glyphs without a name or a meaningful name, it will make the generated C# code use generic C# field name (e.g 'Icon1', 'Icon2')</p>
-                                <p>Usually fonts come with a CSS file. Select the CSS file with the 'Glyph names file' option on the right and enjoy meaningful C# field names.</p>
+                                <p>If the font you selected contains glyphs without a name, the generated C# code will use a dummy C# field name (e.g 'Icon1', 'Icon2').</p>
+                                <p>To fix this, usually fonts come with a CSS file. Try to add the CSS file using the 'Glyph names file' button in the settings panel on the right.</p>
 
                                 <input type="checkbox" id="dismiss" name="dismiss" />
                                 <label for="dismiss">Don't remind me again</label>
@@ -182,6 +184,7 @@
     <div data-bind="visible: isLoading" style="display: none; position: absolute; top:50%; left:50%; background: #FFEEBC;" class="p-3">
         Loading...
     </div>
+
 
     <!--
     <div class="modal" tabindex="-1" role="dialog" id="modal-confirm-known-mapping">
