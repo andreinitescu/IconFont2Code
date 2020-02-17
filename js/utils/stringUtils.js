@@ -7,6 +7,7 @@ export function toUnicodeString(unicode) {
         prefix = "u";
     } else {
         unicodeString = unicodeString.padStart(8, "0");
+        // Using codepoints from the upper bit planes (codes >= 0x10000) require a capital U to get properly encoded into a string literal
         prefix = "U";
     }
 
