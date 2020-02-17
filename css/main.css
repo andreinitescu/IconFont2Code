@@ -83,11 +83,6 @@ html, body{
 
 /* #region App classes */
 
-.icons-glyphs {
-    margin-bottom: 0.5em;
-}
-
-
 /*
 .icons .search {
     border: 1px solid #666;
@@ -175,4 +170,11 @@ html, body{
     border-top: 1px solid lightgray;
 }
 
+.icons-code > pre {
+    margin-bottom: 0;
+}
+
+.expand-glyphs-panel {
+    margin-top: -.5rem;
+}
 /* #endregion */

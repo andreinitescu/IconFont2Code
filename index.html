@@ -65,11 +65,11 @@
             <div class="icons flex-fill flex-col min-h0 pt-3 pb-3 pl-3">
                 <div class="clearfix">
                     <h5 class="float-left">Font glyphs (<span data-bind="text: font().glyphs().length"></span>)</h5>
-                    <button class="btn btn-outline-primary float-right expand-glyphs-panel position-relative" data-toggle="button" aria-pressed="false" autocomplete="off" type="button">
+                    <button class="btn btn-outline-primary float-right expand-glyphs-panel position-relative mr-2" data-toggle="button" aria-pressed="false" autocomplete="off" type="button">
                         <span class="fas fa-expand-arrows-alt"></span>
                     </button>
                 </div>
-                <div class="icons-glyphs flex-fill vscroll">
+                <div class="icons-glyphs flex-fill vscroll border-bottom">
                     <ul data-bind="foreach: font().glyphs()" class="user-select-none">
                         <li class="icon user-select-none">
                             <span class="icon-symbol" data-bind="drawGlyph: $data"></span>
@@ -80,17 +80,17 @@
                         </li>
                     </ul>
                 </div>
-                <div class="flex-auto flex-row">
-                    <span class="font-italic flex-fill text-dark">Click a glyph to toggle selection. Shift to multiselect.</span>
+                <div class="flex-auto flex-row pt-1">
+                    <small><span class="flex-fill text-dark">Click a glyph to toggle selection. Shift to multiselect.</span></small>
                     <button type="button" class="btn btn-outline-primary clear-glyph-selection flex-auto" data-bind="click: clearSelectedGlyphs, style: { opacity: selectedGlyphs().length > 0 ? 1 : 0 }">Clear selection</button>
                 </div>
             </div>
 
             <!-- C# code -->
-            <div class="icons-code flex-col pt-3 pb-3 pl-3 min-h0 csharp-panel left-border">
+            <div class="icons-code flex-col pt-3 pb-3 pl-3 min-h0 csharp-panel border-left">
                 <h5>C#</h5>
-                <pre class="pr-5 flex-fill"><code id="gen-code" class="language-csharp" data-bind="highlight: code"></code></pre>
-                <div class="flex-auto flex-row mr-3">
+                <pre class="pr-5 flex-fill border-bottom"><code id="gen-code" class="language-csharp" data-bind="highlight: code"></code></pre>
+                <div class="flex-auto flex-row mr-3 pt-1">
                     <small><a href="https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/text/fonts" target="_blank">How to add the font to your app?</a></small>
                     <div class="flex-fill"></div>
                     <button class="btn flex-auto align-self-end btn-primary" id="btn-copy-gen-code" data-clipboard-action="copy" data-clipboard-target="#gen-code">Copy to clipboard</button>
@@ -106,7 +106,7 @@
             </div>-->
 
             <!-- Options panel -->
-            <div class="options-panel left-border pt-3 pb-3 pl-3">
+            <div class="options-panel left-border pt-3 pb-3 pl-3 pr-3">
                 <h5>C# code generation options</h5>
                 <div class="card p-3 bg-light form-group">
                     <label for="csharpClassName" class="font-bold">C# class name</label>
