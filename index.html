@@ -48,7 +48,7 @@
             <!-- ko if: font()-->
             <label class="border border-secondary p-1 pl-3 pr-3" style="display: none" data-bind="text: font().fileName, visible: font().fileName"></label>
             <!-- /ko -->
-            <input class="inputfile" type="file" id="file" data-bind="fileUpload: openFontFile" class="btn" />
+            <input class="inputfile" type="file" id="file" data-bind="fileUpload: openFontFile" class="btn" accept=".ttf, .otf, .woff"/>
             <label class="inputfile-btn" for="file" data-toggle="tooltip" data-placement="bottom" data-html="true" title="Select a font file from disk<br/> <small>Or just drag and drop it</small>">Browse</label>
 
             <!-- ko if: font()-->
@@ -81,7 +81,7 @@
                     </ul>
                 </div>
                 <div class="flex-auto flex-row pt-1">
-                    <small><span class="flex-fill text-dark">Click a glyph to toggle selection. Shift to multiselect.</span></small>
+                    <small class="flex-fill text-dark">Click a glyph to toggle selection. Shift to multiselect.</small>
                     <button type="button" class="btn btn-outline-primary clear-glyph-selection flex-auto" data-bind="click: clearSelectedGlyphs, style: { opacity: selectedGlyphs().length > 0 ? 1 : 0 }">Clear selection</button>
                 </div>
             </div>
@@ -126,7 +126,7 @@
                     </div>
 
                     <label class="mt-3">Glyph names file (e.g. CSS)<u class="ml-1"><i data-toggle="modal" class="small" data-target="#cssFeatureModal">What's this for?</i> </i></u></label>
-                    <input type="file" data-bind="fileUpload: openMappingFile" />
+                    <input type="file" data-bind="fileUpload: openMappingFile" accept=".css, .ijmap" />
                 </div>
 
                 <div class="modal fade" id="cssFeatureModal" tabindex="-1" role="dialog" aaria-hidden="true">
