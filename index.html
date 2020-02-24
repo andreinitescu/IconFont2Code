@@ -48,7 +48,7 @@
             <!-- ko if: font()-->
             <label class="border border-secondary p-1 pl-3 pr-3" style="display: none" data-bind="text: font().fileName, visible: font().fileName"></label>
             <!-- /ko -->
-            <input class="inputfile" type="file" id="file" data-bind="fileUpload: openFontFile" class="btn" accept=".ttf, .otf, .woff"/>
+            <input class="inputfile" type="file" id="file" data-bind="fileUpload: openFontFile" class="btn" accept=".ttf, .otf, .woff" />
             <label class="inputfile-btn" for="file" data-toggle="tooltip" data-placement="bottom" data-html="true" title="Select a font file from disk<br/> <small>Or just drag and drop it</small>">Browse</label>
 
             <!-- ko if: font()-->
@@ -221,6 +221,23 @@
     <script type="module" src="js/ko.js"></script>
     <script type="module" src="js/app.js"></script>
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    <!-- Default Statcounter code -->
+    <script type="text/javascript">
+        var sc_project = 12205785;
+        var sc_invisible = 0;
+        var sc_security = "e8ce023a";
+        var scJsHost = "https://";
+        document.write("<sc" + "ript type='text/javascript' src='" +
+            scJsHost +
+            "statcounter.com/counter/counter.js'></" + "script>");
+    </script>
+    <noscript>
+        <div class="statcounter"><a title="Web Analytics
+    Made Easy - StatCounter" href="https://statcounter.com/" target="_blank"><img class="statcounter" src="https://c.statcounter.com/12205785/0/e8ce023a/0/" alt="Web Analytics Made Easy -
+    StatCounter"></a></div>
+    </noscript>
+    <!-- End of Statcounter Code -->
 </body>
 
 </html>
