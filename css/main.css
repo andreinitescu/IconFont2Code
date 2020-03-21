@@ -178,3 +178,8 @@ html, body{
     margin-top: -.5rem;
 }
 /* #endregion */
+
+
+.statcounter  {
+    display: none;
+}

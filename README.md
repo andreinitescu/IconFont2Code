@@ -1,15 +1,21 @@
 IconFont2Code
 ===================
 
-This web tool generates a C# class with the Unicode values of the glyph icons in your font file (.ttf/.otf/.woff). 
-
-It should be an useful tool for any .NET app (**WPF**/**UWP**/**Xamarin**/**Xamarin.Forms**) which uses icon fonts.
+This web tool generates a C# class with the Unicode values of the glyph icons in your font file (.ttf/.otf/.woff). It should be an useful tool for any .NET app (**WPF**/**UWP**/**Xamarin**/**Xamarin.Forms**) which uses icon fonts.
 
 #### **See it live here**: https://andreinitescu.github.io/IconFont2Code/
 
 Have questions or want to hear for updates on IconFont2Code? Follow me on Twitter: https://twitter.com/nitescua
 
-## How to use it
+### Donations 
+
+Has this tool been saving you time working with icon fonts in your app? 
+
+If you'd like to show some support for the time it took to develop and maintain this tool, any donation is greatly appreciated:
+
+[![paypal](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=DUNJ3GZTMYB5C)
+
+## How to use IconFont2Code
 
 1. Pick a font (Browse from disk or just drag&drop the font file)
 2. Click on "Copy to clipboard" button to copy the generated C# code
