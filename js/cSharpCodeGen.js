@@ -97,7 +97,8 @@ function getCSharpFieldInfo(glyph, prefixToRemove, importedCSharpFieldMappings, 
                         return;
 
                     // Check and save the generated field names to enfore uniquness
-                    if (!ctx.generatedFieldNames) ctx.generatedFieldNames = [];
+                    if (!ctx.generatedFieldNames)
+                        ctx.generatedFieldNames = [];
 
                     if (ctx.generatedFieldNames.includes(suggestedName)) {
                         let index = 0;

@@ -1,5 +1,6 @@
 import { parseGlyphMappingsFromIconJar } from './parsers/iconJarParser.js';
 import { parseGlyphMappingsFromCss } from './parsers/cssGlyphNameParser.js';
+import { parseGlyphMappingsFromCodePointsFile } from './parsers/codePointParser.js'
 import { readFileAsText } from './utils/asyncFileReader.js';
 import { KnownMappers, KnownMappingFileTypes } from './mappers.js'
 
@@ -9,9 +10,9 @@ export function isMappingFile(path) {
 
 export function getMapper(font, path) {
     const mapperInforList = KnownMappers.filter((item) => {
-        return (item.name === font.name() && 
-               (item.uniqueIDPattern === undefined || font.uniqueID().match(item.uniqueIDPattern)) &&
-               (item.fileName === undefined || path.endsWith(item.fileName)));
+        return (item.name === font.name() &&
+            (item.uniqueIDPattern === undefined || font.uniqueID().match(item.uniqueIDPattern)) &&
+            (item.fileName === undefined || path.endsWith(item.fileName)));
     });
 
     if (mapperInforList.length <= 0)
@@ -60,6 +61,8 @@ async function getNameMapperFromFileContent(path, fileContent) {
         return await parseGlyphMappingsFromCss(fileContent);
     else if (path.endsWith('.ijmap'))
         return await parseGlyphMappingsFromIconJar(fileContent);
+    else if (path.endsWith('.codepoints'))
+        return await parseGlyphMappingsFromCodePointsFile(fileContent);
 }
 
 export function applyNameMapper(nameMapper, font) {

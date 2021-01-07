@@ -21,8 +21,8 @@ export class OpenTypeFontFactory {
 class OpenTypeFont {
     constructor(fileName, font) {
         this.fileName = fileName;
-        this.name = () => font.names.fullName["en"] || Object.values(font.names.fullName)[0];
-        this.uniqueID = () => font.names.uniqueID["en"] || Object.values(font.names.uniqueID)[0];
+        this.name = () => font.fontFamily ? font.fontFamily["en"] : font.names.fontFamily["en"];
+        this.uniqueID = () => font.uniqueID ? font.uniqueID["en"] : font.names.uniqueID["en"];
         this.glyphs = parseGlyphs(font);
         this.renderer = new OpenTypeFontRenderer();
 

@@ -1,10 +1,10 @@
 export const KnownMappingFileTypes = [
-    ".ijmap", ".css"
+    ".codepoints", ".css"
 ];
 export const KnownMappers = [
     {
         name: "Material Icons",
-        mappingUrl: "https://raw.githubusercontent.com/google/material-design-icons/master/iconfont/MaterialIcons-Regular.ijmap"
+        mappingUrl: "https://raw.githubusercontent.com/google/material-design-icons/master/font/MaterialIcons-Regular.codepoints"
     },
     {
         name: "fontcustom",
