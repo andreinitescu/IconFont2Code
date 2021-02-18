@@ -2,7 +2,7 @@ import { OpenTypeFontFactory } from './fontParsers/otfFont.js';
 import { toUnicodeString } from './utils/stringUtils.js';
 
 import { parseCSharpCode } from './parsers/cSharpCodeParser.js';
-import { generateCsharpCode } from './cSharpCodeGen.js';
+import { generateCsharpCode } from './CSharpCodeGen/CSharpCodeGen.js';
 import { isMappingFile, getMapper, getNameMapperFromFile, applyNameMapper } from './mapper.js';
 
 export class MainViewModel {
@@ -21,9 +21,11 @@ export class MainViewModel {
 
             return generateCsharpCode(
                 _this.selectedGlyphs().length ? _this.selectedGlyphs() : _this.font().glyphs(),
-                _this.cSharpCodeGenOptions.prefix(),
-                _this.cSharpCodeGenOptions.className(),
-                _importedCSharpFieldMappings);
+                _importedCSharpFieldMappings,
+                {
+                    className: _this.cSharpCodeGenOptions.className(),
+                    prefix: _this.cSharpCodeGenOptions.prefix(),
+                });
         });
 
         this.selectedGlyphs = ko.observableArray([]);
@@ -86,7 +88,7 @@ export class MainViewModel {
                     setFont(font);
                     _this.isLoading(false);
 
-                    if(!Cookies.get('fontwithoutglyphs-dontremind'))
+                    if (!Cookies.get('fontwithoutglyphs-dontremind'))
                         $("#fontwithoutglyphs-dialog").modal('show');
                 });
             }

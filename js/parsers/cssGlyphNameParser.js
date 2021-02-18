@@ -5,11 +5,13 @@
  */
 export function parseGlyphMappingsFromCss(fileContent) {
     return new Promise(async (resolve, reject) => {
-        const cssDefs = Array.from(getCssRulesForCssText(fileContent))
-            .filter(cssDef => cssDef.style && cssDef.style.length == 1 && cssDef.style[0] == 'content');
+        const cssRules = Array.from(getCssRulesForCssText(fileContent))
+            .filter(cssRule => cssRule.style
+                && cssRule.style.length == 1
+                && cssRule.style[0] == 'content');
 
         let mappings = {};
-        cssDefs.forEach(cssDef => {
+        cssRules.forEach(cssDef => {
             let t = cssDef.selectorText;
             t = t.substr(1, t.indexOf('::') - 1);
             const unicode = getCSSRuleContent(cssDef);
