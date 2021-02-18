@@ -3,18 +3,29 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible"
+          content="ie=edge">
     <title>IconFont2Code</title>
 
-    <link rel="stylesheet" type="text/css" href="css/prism-vs.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.0/themes/prism.min.css" type="text/css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel="stylesheet"
+          type="text/css"
+          href="css/prism-vs.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.0/themes/prism.min.css"
+          type="text/css">
+    <link rel="stylesheet"
+          href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+          integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+          crossorigin="anonymous">
     <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.0/themes/prism-okaidia.min.css" type="text/css">-->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/opentype.js@latest/dist/opentype.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.0/prism.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.0/components/prism-clike.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.0/components/prism-csharp.min.js"></script>
@@ -22,71 +33,132 @@
     <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.5/typed.min.js"
+            integrity="sha512-1KbKusm/hAtkX5FScVR5G36wodIMnVd/aP04af06iyQTkD17szAMGNmxfNH+tEuFp3Og/P5G32L1qEC47CZbUQ=="
+            crossorigin="anonymous"></script>
+
     <!-- 
     <script src="js/utils/htmlencode.min.js"></script>
     -->
 
     <!-- Boostrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet"
+          type="text/css"
+          href="css/main.css">
 </head>
 
 <body>
-    <div style="position: absolute; top: 10px; right: 10px; border: 0; ">
-        <div class="d-inline-block border pl-1 pt-2 pr-1 mr-3">
-            <form action="https://www.paypal.com/cgi-bin/webscr" class="text-center" method="post" target="_top">
-                <input type="hidden" name="cmd" value="_s-xclick" />
-                <input type="hidden" name="hosted_button_id" value="DUNJ3GZTMYB5C" />
-                <img class="align-top" src="https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_37x23.jpg" border="0" alt="PayPal Logo">
-                <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
-                <img alt="" border="0" src="https://www.paypal.com/en_RO/i/scr/pixel.gif" width="1" height="1" />
-                <small class="vertical-middle text-muted d-block">Has this tool been saving you some time?</small>
-                
+    <div style="position: absolute; top: 10px; right: 10px; border: 0;" class="d-flex flex-row">
+        <div class="d-inline-block border px-2 pt-2 pb-0 mr-2">
+            <form action="https://www.paypal.com/cgi-bin/webscr"
+                  class="text-center"
+                  method="post"
+                  target="_top">
+                <input type="hidden"
+                       name="cmd"
+                       value="_s-xclick" />
+                <input type="hidden"
+                       name="hosted_button_id"
+                       value="DUNJ3GZTMYB5C" />
+                <img class="align-top"
+                     src="https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_37x23.jpg"
+                     border="0"
+                     alt="PayPal Logo">
+                <input type="image"
+                       src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif"
+                       border="0"
+                       name="submit"
+                       title="PayPal - The safer, easier way to pay online!"
+                       alt="Donate with PayPal button" />
+                <img alt=""
+                     border="0"
+                     src="https://www.paypal.com/en_RO/i/scr/pixel.gif"
+                     width="1"
+                     height="1" />
+                <div class="type-wrap">
+                    <small id="donateMsg"></small>
+                </div>
             </form>
         </div>
-        <div class="d-inline-block">
-            <a class="github-button" href="https://github.com/andreinitescu/iconfont2code" data-size="large" data-show-count="true" aria-label="Star andreinitescu/iconfont2code on GitHub">Star</a>
-            <small class="vertical-middle text-muted d-block">Like it? Please ⭐ star it.</small>
-            <small class="vertical-middle text-muted d-block">Found a bug or want a new feature? Please open an issue.</small>
+        <div class="d-inline-block border px-2 pt-2 pb-0">
+            <!-- <a class="github-button"
+               href="https://github.com/andreinitescu/iconfont2code"
+               data-size="large"
+               data-show-count="true"
+               aria-label="Star andreinitescu/iconfont2code on GitHub">Star</a> -->
+            <small class="d-block">Like it? Please <a href="https://github.com/andreinitescu/iconfont2code">⭐ star it</a></small>
+            <small class="d-block"><a href="https://twitter.com/nitescua">Follow me</a> for updates</small>
+            <small class="d-block">Found a bug or want a new feature? Please <a href="https://github.com/andreinitescu/IconFont2Code/issues/new">open an issue</a></small>
         </div>
     </div>
 
     <div class="flex-col h-100 min-h0">
-        <div id="font-file-panel" class="flex-auto p-3">
+        <div id="font-file-panel"
+             class="flex-auto p-3">
             <h3>Icon font to Code</h3>
             <label for="file">Font file (TTF/OTF/WOFF): </label>
 
             <!-- ko if: font()-->
-            <label class="border border-secondary p-1 pl-3 pr-3" style="display: none" data-bind="text: font().fileName, visible: font().fileName"></label>
+            <label class="border border-secondary p-1 pl-3 pr-3"
+                   style="display: none"
+                   data-bind="text: font().fileName, visible: font().fileName"></label>
             <!-- /ko -->
-            <input class="inputfile" type="file" id="file" data-bind="fileUpload: openFontFile" class="btn" accept=".ttf, .otf, .woff" />
-            <label class="inputfile-btn" for="file" data-toggle="tooltip" data-placement="bottom" data-html="true" title="Select a font file from disk<br/> <small>Or just drag and drop it</small>">Browse</label>
+            <input class="inputfile"
+                   type="file"
+                   id="file"
+                   data-bind="fileUpload: openFontFile"
+                   class="btn"
+                   accept=".ttf, .otf, .woff" />
+            <label class="inputfile-btn"
+                   for="file"
+                   data-toggle="tooltip"
+                   data-placement="bottom"
+                   data-html="true"
+                   title="Select a font file from disk<br/> <small>Or just drag and drop it</small>">Browse</label>
 
             <!-- ko if: font()-->
-            <div style="display: none" data-bind="visible: font().name">
+            <div style="display: none"
+                 data-bind="visible: font().name">
                 <span class="inline">Font name:</span>
-                <span data-bind="text: font().name()" class="inline"></span>
+                <span data-bind="text: font().name()"
+                      class="inline"></span>
             </div>
             <!-- /ko -->
         </div>
 
         <!-- ko if: font()-->
-        <div class="flex-fill flex-row min-h0 top-border" data-bind="visible: font()" style="display: none">
+        <div class="flex-fill flex-row min-h0 top-border"
+             data-bind="visible: font()"
+             style="display: none">
             <!-- Glyphs -->
             <div class="icons flex-fill flex-col min-h0 pt-3 pb-3 pl-3">
                 <div class="clearfix">
                     <h5 class="float-left">Font glyphs (<span data-bind="text: font().glyphs().length"></span>)</h5>
-                    <button class="btn btn-outline-primary float-right expand-glyphs-panel position-relative mr-2" data-toggle="button" aria-pressed="false" autocomplete="off" type="button">
+                    <button class="btn btn-outline-primary float-right expand-glyphs-panel position-relative mr-2"
+                            data-toggle="button"
+                            aria-pressed="false"
+                            autocomplete="off"
+                            type="button">
                         <span class="fas fa-expand-arrows-alt"></span>
                     </button>
                 </div>
                 <div class="icons-glyphs flex-fill vscroll border-bottom">
-                    <ul data-bind="foreach: font().glyphs()" class="user-select-none">
+                    <ul data-bind="foreach: font().glyphs()"
+                        class="user-select-none">
                         <li class="icon user-select-none">
-                            <span class="icon-symbol" data-bind="drawGlyph: $data"></span>
+                            <span class="icon-symbol"
+                                  data-bind="drawGlyph: $data"></span>
                             <div class="font-small">
                                 <span class="icon-name"><small data-bind="text: name"></small></span>
                                 <span class="icon-code"><small data-bind="text: $root.toUnicodeString(unicode)"></small></span>
@@ -96,7 +168,9 @@
                 </div>
                 <div class="flex-auto flex-row pt-1">
                     <small class="flex-fill text-dark">Click a glyph to toggle selection. Shift to multiselect.</small>
-                    <button type="button" class="btn btn-outline-primary clear-glyph-selection flex-auto" data-bind="click: clearSelectedGlyphs, style: { opacity: selectedGlyphs().length > 0 ? 1 : 0 }">Clear selection</button>
+                    <button type="button"
+                            class="btn btn-outline-primary clear-glyph-selection flex-auto"
+                            data-bind="click: clearSelectedGlyphs, style: { opacity: selectedGlyphs().length > 0 ? 1 : 0 }">Clear selection</button>
                 </div>
             </div>
 
@@ -105,9 +179,13 @@
                 <h5>C#</h5>
                 <pre class="pr-5 flex-fill border-bottom"><code id="gen-code" class="language-csharp" data-bind="highlight: code"></code></pre>
                 <div class="flex-auto flex-row mr-3 pt-1">
-                    <small><a href="https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/text/fonts" target="_blank">How to add the font to your app?</a></small>
+                    <small><a href="https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/text/fonts"
+                           target="_blank">How to add the font to your app?</a></small>
                     <div class="flex-fill"></div>
-                    <button class="btn flex-auto align-self-end btn-primary" id="btn-copy-gen-code" data-clipboard-action="copy" data-clipboard-target="#gen-code">Copy to clipboard</button>
+                    <button class="btn flex-auto align-self-end btn-primary"
+                            id="btn-copy-gen-code"
+                            data-clipboard-action="copy"
+                            data-clipboard-target="#gen-code">Copy to clipboard</button>
                 </div>
             </div>
 
@@ -123,32 +201,56 @@
             <div class="options-panel left-border pt-3 pb-3 pl-3 pr-3">
                 <h5>C# code generation options</h5>
                 <div class="card p-3 bg-light form-group">
-                    <label for="csharpClassName" class="font-bold">C# class name</label>
+                    <label for="csharpClassName"
+                           class="font-bold">C# class name</label>
                     <div class="input-group flex-nowrap">
-                        <input text="text" id="csharpClassName" class="form-control w-10" />
+                        <input text="text"
+                               id="csharpClassName"
+                               class="form-control w-10" />
                         <div class="input-group-append">
-                            <button type="button" class="btn btn-outline-secondary" data-bind="fieldBtn: { setter : cSharpCodeGenOptions.className, selector: '#csharpClassName' }">Set</button>
+                            <button type="button"
+                                    class="btn btn-outline-secondary"
+                                    data-bind="fieldBtn: { setter : cSharpCodeGenOptions.className, selector: '#csharpClassName' }">Set</button>
                         </div>
                     </div>
 
-                    <label for="prefix" class="mt-3">Glyph name prefix to remove</label>
+                    <label for="prefix"
+                           class="mt-3">Glyph name prefix to remove</label>
                     <div class="input-group flex-nowrap">
-                        <input text="text" id="prefix" class="form-control" data-bind="value: cSharpCodeGenOptions.prefix()" />
+                        <input text="text"
+                               id="prefix"
+                               class="form-control"
+                               data-bind="value: cSharpCodeGenOptions.prefix()" />
                         <div class="input-group-append">
-                            <button type="button" class="btn btn-outline-secondary" data-bind="fieldBtn: { setter : cSharpCodeGenOptions.prefix, selector: '#prefix' }">Set</button>
+                            <button type="button"
+                                    class="btn btn-outline-secondary"
+                                    data-bind="fieldBtn: { setter : cSharpCodeGenOptions.prefix, selector: '#prefix' }">Set</button>
                         </div>
                     </div>
 
-                    <label class="mt-3">Glyph names file (e.g. CSS)<u class="ml-1"><i data-toggle="modal" class="small" data-target="#cssFeatureModal">What's this for?</i> </i></u></label>
-                    <input type="file" data-bind="fileUpload: openMappingFile" accept=".css, .ijmap" />
+                    <label class="mt-3">Glyph names file (e.g. CSS)<u class="ml-1"><i data-toggle="modal"
+                               class="small"
+                               data-target="#cssFeatureModal">What's this for?</i> </i></u></label>
+                    <input type="file"
+                           data-bind="fileUpload: openMappingFile"
+                           accept=".css, .ijmap" />
                 </div>
 
-                <div class="modal fade" id="cssFeatureModal" tabindex="-1" role="dialog" aaria-hidden="true">
-                    <div class="modal-dialog" role="document">
+                <div class="modal fade"
+                     id="cssFeatureModal"
+                     tabindex="-1"
+                     role="dialog"
+                     aaria-hidden="true">
+                    <div class="modal-dialog"
+                         role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Glyph name mapping file</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <h5 class="modal-title"
+                                    id="exampleModalLabel">Glyph name mapping file</h5>
+                                <button type="button"
+                                        class="close"
+                                        data-dismiss="modal"
+                                        aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
@@ -165,14 +267,21 @@
                                 <br />Check out the following video which shows selecting the CSS file which comes with the Foundation Icon font:<br /><a href="https://www.youtube.com/watch?v=HF6VLaAYSa4">https://www.youtube.com/watch?v=HF6VLaAYSa4</a>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button"
+                                        class="btn btn-secondary"
+                                        data-dismiss="modal">Close</button>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="modal fade" tabindex="-1" role="dialog" id="fontwithoutglyphs-dialog" aria-hidden="true">
-                    <div class="modal-dialog modal-xl" role="document">
+                <div class="modal fade"
+                     tabindex="-1"
+                     role="dialog"
+                     id="fontwithoutglyphs-dialog"
+                     aria-hidden="true">
+                    <div class="modal-dialog modal-xl"
+                         role="document">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title">About font glyphs name</h5>
@@ -181,11 +290,15 @@
                                 <p>If the font you selected contains glyphs without a name, the generated C# code will use a dummy C# field name (e.g 'Icon1', 'Icon2').</p>
                                 <p>To fix this, usually fonts come with a CSS file. Try to add the CSS file using the 'Glyph names file' button in the settings panel on the right.</p>
 
-                                <input type="checkbox" id="dismiss" name="dismiss" />
+                                <input type="checkbox"
+                                       id="dismiss"
+                                       name="dismiss" />
                                 <label for="dismiss">Don't remind me again</label>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+                                <button type="button"
+                                        class="btn btn-primary"
+                                        data-dismiss="modal">OK</button>
                             </div>
                         </div>
                     </div>
@@ -195,7 +308,9 @@
         <!-- /ko -->
     </div>
 
-    <div data-bind="visible: isLoading" style="display: none; position: absolute; top:50%; left:50%; background: #FFEEBC;" class="p-3">
+    <div data-bind="visible: isLoading"
+         style="display: none; position: absolute; top:50%; left:50%; background: #FFEEBC;"
+         class="p-3">
         Loading...
     </div>
 
@@ -232,9 +347,23 @@
 
 
     <!-- App -->
-    <script type="module" src="js/ko.js"></script>
-    <script type="module" src="js/app.js"></script>
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script type="module"
+            src="js/ko.js"></script>
+    <script type="module"
+            src="js/app.js"></script>
+    <script async
+            defer
+            src="https://buttons.github.io/buttons.js"></script>
+
+    <script>
+        var typed2 = new Typed('#donateMsg', {
+            strings: ['Has this tool been saving you some time?', 'Buy me a coffee ☕'],
+            typeSpeed: 40,
+            backSpeed: 0,
+            fadeOut: true,
+            loop: true
+        });
+    </script>
 
     <!-- Default Statcounter code -->
     <script type="text/javascript">
@@ -246,9 +375,11 @@
             scJsHost +
             "statcounter.com/counter/counter.js'></" + "script>");
     </script>
+
     <noscript>
         <div class="statcounter">
-            <img class="statcounter" src="https://c.statcounter.com/12205785/0/e8ce023a/0/">
+            <img class="statcounter"
+                 src="https://c.statcounter.com/12205785/0/e8ce023a/0/">
         </div>
     </noscript>
     <!-- End of Statcounter Code -->
