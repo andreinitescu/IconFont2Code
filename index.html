@@ -177,8 +177,8 @@
 
             <!-- C# code -->
             <div class="icons-code flex-col pt-3 pb-3 pl-3 min-h0 csharp-panel border-left">
-                <h5>C#</h5>
-                <pre class="pr-5 flex-fill border-bottom"><code id="gen-code" class="language-csharp" data-bind="highlight: code"></code></pre>
+                <h5 data-bind="text: cSharpCodeGenOptions.generateResourceDictionary() ? 'XAML' : 'C#'"></h5>
+                <pre class="pr-5 flex-fill border-bottom"><code id="gen-code" class="language-xml" data-bind="highlight: code"></code></pre>
                 <div class="flex-auto flex-row mr-3 pt-1">
                     <small><a href="https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/text/fonts"
                            target="_blank">How to add the font to your app?</a></small>
@@ -200,23 +200,53 @@
 
             <!-- Options panel -->
             <div class="options-panel left-border pt-3 pb-3 pl-3 pr-3">
-                <h5>C# code generation options</h5>
-                <div class="card p-3 bg-light form-group">
-                    <label for="csharpClassName"
+                <h5>Code generation options</h5>
+
+                <div class="card mt-3 p-3 bg-light form-group" data-bind="">
+                    <!-- <label for="csharpClassName"
                            class="font-bold">C# class name</label>
                     <div class="input-group flex-nowrap">
                         <input text="text"
                                id="csharpClassName"
-                               class="form-control w-10" />
+                               class="form-control w-10" 
+                               data-bind="enable: !cSharpCodeGenOptions.generateResourceDictionary()"/>
                         <div class="input-group-append">
                             <button type="button"
                                     class="btn btn-outline-secondary"
-                                    data-bind="fieldBtn: { setter : cSharpCodeGenOptions.className, selector: '#csharpClassName' }">Set</button>
+                                    data-bind="fieldBtn: { setter : cSharpCodeGenOptions.className, selector: '#csharpClassName' }, enable: !cSharpCodeGenOptions.generateResourceDictionary()">Set</button>
+                        </div>
+                    </div> -->
+
+                    <div class="input-group form-check">
+                        <input id="checkBoxResDictionary" class="form-check-input" type="checkbox" data-bind="checked: cSharpCodeGenOptions.generateResourceDictionary"/>
+                        <label class="form-check-label" for="checkBoxResDictionary">Generate <i>ResourceDictionary</i> XAML</label>
+                    </div>
+
+                    <label for="resDicFramework"
+                           class="mt-4 font-bold">Framework</label>
+                    <select class="form-control" data-bind="value: cSharpCodeGenOptions.framework, enable: cSharpCodeGenOptions.generateResourceDictionary()">
+                        <option value="0">MAUI 🌴</option>
+                        <option value="1">Xamarin.Forms</option>
+                    </select>
+
+                    <label for="resDicKeyPrefix"
+                           class="mt-4 font-bold">Key prefix</label>
+                    <div class="input-group flex-nowrap">
+                        <input text="text"
+                               id="resDicKeyPrefix"
+                               class="form-control w-10" 
+                               data-bind="enable: cSharpCodeGenOptions.generateResourceDictionary(), value: cSharpCodeGenOptions.resDicKeyPrefix"/>
+                        <div class="input-group-append">
+                            <button type="button"
+                                    class="btn btn-outline-secondary"
+                                    data-bind="fieldBtn: { setter : cSharpCodeGenOptions.resDicKeyPrefix, selector: '#resDicKeyPrefix' }, enable: cSharpCodeGenOptions.generateResourceDictionary()">Set</button>
                         </div>
                     </div>
 
-                    <label for="prefix"
-                           class="mt-3">Glyph name prefix to remove</label>
+                </div>
+
+                <div class="card p-3 bg-light form-group" data-bind="">
+                    <label for="prefix">Glyph name prefix to remove</label>
                     <div class="input-group flex-nowrap">
                         <input text="text"
                                id="prefix"
@@ -229,12 +259,13 @@
                         </div>
                     </div>
 
-                    <label class="mt-3">Glyph names file (e.g. CSS)<u class="ml-1"><i data-toggle="modal"
+                    <label class="mt-4">Glyph names file (e.g. CSS)<u class="ml-1"><i data-toggle="modal"
                                class="small"
                                data-target="#cssFeatureModal">What's this for?</i> </i></u></label>
                     <input type="file"
                            data-bind="fileUpload: openMappingFile"
                            accept=".css, .ijmap" />
+
                 </div>
 
                 <div class="modal fade"

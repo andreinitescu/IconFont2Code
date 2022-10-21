@@ -59,7 +59,7 @@ ko.bindingHandlers.highlight = {
 		let value = ko.unwrap(valueAccessor());
 
 		if (value !== undefined) { // allows highlighting static code
-			element.innerHTML = value;
+            element.textContent = value;
 		}
 
 		// window.Prism.highlightElement(element);

@@ -4,6 +4,7 @@ import { toUnicodeString } from './utils/stringUtils.js';
 import { parseCSharpCode } from './parsers/cSharpCodeParser.js';
 import { generateCsharpCode } from './CSharpCodeGen/CSharpCodeGen.js';
 import { isMappingFile, getMapper, getNameMapperFromFile, applyNameMapper } from './mapper.js';
+import generateResourceDictionaryXaml from './ResourceDictionaryXamlCodeGen/ResDictionaryXamlCodeGen.js';
 
 export class MainViewModel {
     constructor() {
@@ -16,16 +17,34 @@ export class MainViewModel {
         //this.code = ko.observable();
 
         this.code = ko.pauseableComputed(() => {
-            if (!_this.font())
+            if (!_this.font()) {
                 return "";
+            }
 
-            return generateCsharpCode(
-                _this.selectedGlyphs().length ? _this.selectedGlyphs() : _this.font().glyphs(),
-                _importedCSharpFieldMappings,
-                {
-                    className: _this.cSharpCodeGenOptions.className(),
-                    prefix: _this.cSharpCodeGenOptions.prefix(),
-                });
+            const selectedGlyphs = _this.selectedGlyphs().length ? _this.selectedGlyphs() : _this.font().glyphs();
+
+            const generateXaml = _this.cSharpCodeGenOptions.generateResourceDictionary();
+            if (generateXaml) {
+                return generateResourceDictionaryXaml(
+                    selectedGlyphs,
+                    _importedCSharpFieldMappings,
+                    {
+                        prefix: _this.cSharpCodeGenOptions.prefix(),
+                        keyPrefix: _this.cSharpCodeGenOptions.resDicKeyPrefix(),
+                        framework: _this.cSharpCodeGenOptions.framework()
+                    }
+                );
+            }
+            else {
+                return generateCsharpCode(
+                    selectedGlyphs,
+                    _importedCSharpFieldMappings,
+                    {
+                        className: _this.cSharpCodeGenOptions.className(),
+                        prefix: _this.cSharpCodeGenOptions.prefix(),
+                        framework: _this.cSharpCodeGenOptions.framework()
+                    });
+            }
         });
 
         this.selectedGlyphs = ko.observableArray([]);
@@ -33,6 +52,9 @@ export class MainViewModel {
         this.cSharpCodeGenOptions = {
             className: ko.observable(),
             prefix: ko.observable(),
+            generateResourceDictionary: ko.observable(true),
+            resDicKeyPrefix: ko.observable('Icon'),
+            framework: ko.observable(0)
         };
 
         this.isFontFile = (file) => file.name.endsWith('.ttf') || file.name.endsWith('.otf') || file.name.endsWith('.woff');
@@ -145,6 +167,9 @@ export class MainViewModel {
         function setFont(font) {
             _this.cSharpCodeGenOptions.prefix(null);
             _this.cSharpCodeGenOptions.className(null);
+            _this.cSharpCodeGenOptions.generateResourceDictionary(false);
+            _this.cSharpCodeGenOptions.resDicKeyPrefix('Icon');
+            _this.cSharpCodeGenOptions.framework(0);
             _this.font(font);
             _this.selectedGlyphs.removeAll();
         }

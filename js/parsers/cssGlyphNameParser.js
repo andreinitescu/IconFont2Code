@@ -16,7 +16,7 @@ export function parseGlyphMappingsFromCss(fileContent) {
             t = t.substr(1, t.indexOf('::') - 1);
             const unicode = getCSSRuleContent(cssDef);
             mappings[unicode] = t;
-            console.log(unicode, t);
+            //console.log(unicode, t);
         });
 
         let mappingFunc;
