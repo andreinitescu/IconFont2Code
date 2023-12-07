@@ -5,6 +5,7 @@ import { parseCSharpCode } from './parsers/cSharpCodeParser.js';
 import { generateCsharpCode } from './CSharpCodeGen/CSharpCodeGen.js';
 import { isMappingFile, getMapper, getNameMapperFromFile, applyNameMapper } from './mapper.js';
 import generateResourceDictionaryXaml from './ResourceDictionaryXamlCodeGen/ResDictionaryXamlCodeGen.js';
+import EnhancedFile from './utils/enhancedFile.js';
 
 export class MainViewModel {
     constructor() {
@@ -57,8 +58,8 @@ export class MainViewModel {
             framework: ko.observable(0)
         };
 
-        this.isFontFile = (file) => file.name.endsWith('.ttf') || file.name.endsWith('.otf') || file.name.endsWith('.woff');
-        this.isCsharpFile = (file) => file.name.endsWith('.cs');
+        this.isFontFile = (file) => new EnhancedFile(file).hasSomeExtension(['ttf', 'otf', 'woff', 'woff2']);
+        this.isCsharpFile = (file) => new EnhancedFile(file).hasExtension('cs');
 
         this.openFile = async (fileToOpen) => {
             if (fileToOpen !== null) {
@@ -76,13 +77,13 @@ export class MainViewModel {
                 return;
 
             if (!this.isFontFile(file)) {
-                alert('Please select a TrueType Font (.ttf), OpenType Font (.otf) or Web Open Font Format (.woff) file');
+                alert('Please select a TrueType Font (.ttf), OpenType Font (.otf) or Web Open Font Format (.woff, .woff2) file');
                 return;
             }
 
             _this.isLoading(true);
 
-            const font = await new OpenTypeFontFactory().createFont(file);
+            const font = await new OpenTypeFontFactory().createFontAsync(file);
             const mapper = getMapper(font, file.name);
 
             if (mapper) {

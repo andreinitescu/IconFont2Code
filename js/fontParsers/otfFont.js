@@ -1,20 +1,33 @@
 import { readFileAsArrayBuffer } from '../utils/asyncFileReader.js';
+import EnhancedFile from '../utils/enhancedFile.js';
 
 
 export class OpenTypeFontFactory {
-    constructor() {
-        this.createFont = function (file) {
-            return new Promise(async (resolve, reject) => {
-                try {
-                    const fileContent = await readFileAsArrayBuffer(file);
-                    resolve(new OpenTypeFont(file.name, opentype.parse(fileContent)));
-                }
-                catch (ex) {
-                    alert('Unable to open the font file.\nConsider opening an issue in the GitHub repo with information how to reproduce the issue.');
-                    reject(ex);
-                }
-            });
-        };
+    async createFontAsync(file) {
+        try {
+            const fontArrayBuffer = await OpenTypeFontFactory._getUncompressedArrayBufferAsync(file);
+            const font = opentype.parse(fontArrayBuffer);
+
+            return new OpenTypeFont(file.name, font);
+        }
+        catch (ex) {
+            alert('Unable to open the font file.\nConsider opening an issue in the GitHub repo with information how to reproduce the issue.');
+            throw (ex);
+        }
+    }
+
+    static async _getUncompressedArrayBufferAsync(fontFile) {
+        const fontArrayBuffer = await readFileAsArrayBuffer(fontFile);
+
+        const isWoff2FontFile = new EnhancedFile(fontFile).hasExtension('woff2');
+        if (isWoff2FontFile) {
+            const uint8Array = await Module.decompress(fontArrayBuffer);
+
+            return Uint8Array.from(uint8Array).buffer;
+        }
+        else {
+            return fontArrayBuffer;
+        }
     }
 }
 

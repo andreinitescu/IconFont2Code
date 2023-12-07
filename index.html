@@ -22,7 +22,10 @@
     <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.17.0/themes/prism-okaidia.min.css" type="text/css">-->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.2/knockout-min.js"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/opentype.js@latest/dist/opentype.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/wawoff2@2.0.1/build/decompress_binding.min.js"></script>
+
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
             crossorigin="anonymous"></script>
@@ -108,7 +111,7 @@
              class="flex-auto p-3">
             <h3 class="mb-0">Icon Font to #Code</h3>
             <p class="text-muted">Generate C# code from icon font</p>
-            <label for="file">Font file (TTF/OTF/WOFF): </label>
+            <label for="file">Font file (TTF/OTF/WOFF/WOFF2): </label>
 
             <!-- ko if: font()-->
             <label class="border border-secondary p-1 pl-3 pr-3"
@@ -120,7 +123,7 @@
                    id="file"
                    data-bind="fileUpload: openFontFile"
                    class="btn"
-                   accept=".ttf, .otf, .woff" />
+                   accept=".ttf, .otf, .woff, .woff2" />
             <label class="inputfile-btn"
                    for="file"
                    data-toggle="tooltip"
